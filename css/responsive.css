@@ -1,0 +1,126 @@
+/*
+ * Marlco Capital Insurance Agency - Responsive Styles
+ * Mobile-first responsive design
+ */
+
+/* ========================================
+   TABLET - 640px and up
+   ======================================== */
+@media (min-width: 640px) {
+    html {
+        font-size: 16px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   DESKTOP - 1024px and up
+   ======================================== */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: var(--font-size-5xl);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .section {
+        padding: var(--spacing-10) 0;
+    }
+}
+
+/* ========================================
+   MOBILE SPECIFIC STYLES
+   ======================================== */
+@media (max-width: 639px) {
+    :root {
+        --font-size-5xl: 2rem;
+        --font-size-4xl: 1.75rem;
+        --font-size-3xl: 1.5rem;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: var(--spacing-4) 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .section {
+        padding: var(--spacing-6) 0;
+    }
+
+    .whatsapp-float {
+        width: 56px;
+        height: 56px;
+        bottom: var(--spacing-3);
+        right: var(--spacing-3);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-4);
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+
+    .navbar,
+    .whatsapp-float,
+    .hero-cta,
+    .btn {
+        display: none;
+    }
+
+    body {
+        font-size: 12pt;
+        color: #000;
+    }
+
+    .hero {
+        background: none;
+        color: #000;
+        margin-top: 0;
+    }
+}

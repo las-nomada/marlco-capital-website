@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Get a Free Insurance Quote - Marlco Capital Insurance Kenya</title>
+    <meta name="description"
+        content="Get a free, no-obligation insurance quote from Marlco Capital. Motor, medical, life, property, travel, and business insurance in Kenya.">
+    <meta name="keywords"
+        content="insurance quote Kenya, free quote, motor insurance quote, medical insurance quote Kenya">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .progress-container {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background-color: var(--color-gray-200);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 33.33%;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+            transition: width var(--transition-base);
+        }
+
+        .step-indicator {
+            text-align: center;
+            margin-top: var(--spacing-2);
+            color: var(--color-gray-600);
+            font-weight: 600;
+        }
+
+        .form-navigation {
+            display: flex;
+            gap: var(--spacing-2);
+            justify-content: space-between;
+            margin-top: var(--spacing-4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <a href="index.html" class="navbar-logo">
+                <div class="navbar-logo-icon">MC</div>
+                <span>Marlco Capital</span>
+            </a>
+
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html">Insurance Products</a></li>
+                <li><a href="quote.html">Get a Quote</a></li>
+                <li><a href="claims.html">Claims Assistance</a></li>
+                <li><a href="blog.html">Insurance Insights</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 350px;">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Get Your Free Quote</h1>
+                <p class="hero-subtitle">Tell us about your insurance needs and we'll provide a personalized quote
+                    within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section class="section">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto;">
+
+                <!-- Progress Indicator -->
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar"></div>
+                    </div>
+                    <div class="step-indicator">Step 1 of 3</div>
+                </div>
+
+                <form id="quote-form" class="multi-step-form">
+
+                    <!-- Step 1: Insurance Type -->
+                    <div class="form-step active">
+                        <h2 class="mb-4">What type of insurance do you need?</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Select Insurance Type <span
+                                    style="color: var(--color-error);">*</span></label>
+                            <select name="insurance_type" class="form-control" required>
+                                <option value="">-- Select Type --</option>
+                                <option value="motor">Motor Insurance</option>
+                                <option value="medical">Medical Insurance</option>
+                                <option value="life">Life Insurance</option>
+                                <option value="property">Property Insurance</option>
+                                <option value="travel">Travel Insurance</option>
+                                <option value="business">Business Insurance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Coverage Level</label>
+                            <select name="coverage_level" class="form-control">
+                                <option value="">-- Select Coverage --</option>
+                                <option value="basic">Basic / Third Party</option>
+                                <option value="standard">Standard</option>
+                                <option value="comprehensive">Comprehensive</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Tell us more about your needs (optional)</label>
+                            <textarea name="insurance_details" class="form-control"
+                                placeholder="E.g., I have a Toyota Harrier 2020 and need comprehensive motor insurance..."></textarea>
+                        </div>
+
+                        <div class="form-navigation">
+                            <div></div>
+                            <button type="button" class="btn btn-primary btn-next">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Personal Information -->
+                    <div class="form-step">
+                        <h2 class="mb-4">Your Personal Information</h2>
+
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label class="form-label">First Name <span
+                                        style="color: var(--color-error);">*</span></label>
+                                <input type="text" name="first_name" class="form-control" required placeholder="John">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Last Name <span
+                                        style="color: var(--color-error);">*</span></label>
+                                <input type="text" name="last_name" class="form-control" required placeholder="Doe">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Email Address <span
+                                    style="color: var(--color-error);">*</span></label>
+                            <input type="email" name="email" class="form-control" required
+                                placeholder="john.doe@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Phone Number <span
+                                    style="color: var(--color-error);">*</span></label>
+                            <input type="tel" name="phone" class="form-control" required placeholder="0700000000">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">County / Location</label>
+                            <input type="text" name="location" class="form-control"
+                                placeholder="Nairobi, Mombasa, etc.">
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline btn-prev">← Previous</button>
+                            <button type="button" class="btn btn-primary btn-next">Next Step →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Preferences & Submit -->
+                    <div class="form-step">
+                        <h2 class="mb-4">How can we help you best?</h2>
+
+                        <div class="form-group">
+                            <label class="form-label">Preferred Contact Method</label>
+                            <select name="contact_method" class="form-control">
+                                <option value="phone">Phone Call</option>
+                                <option value="email">Email</option>
+                                <option value="whatsapp">WhatsApp</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">When should we contact you?</label>
+                            <select name="contact_time" class="form-control">
+                                <option value="anytime">Anytime</option>
+                                <option value="morning">Morning (8 AM - 12 PM)</option>
+                                <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                <option value="evening">Evening (4 PM - 6 PM)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Additional Comments</label>
+                            <textarea name="comments" class="form-control"
+                                placeholder="Any other information we should know?"></textarea>
+                        </div>
+
+                        <div
+                            style="background-color: var(--color-gray-50); padding: var(--spacing-3); border-radius: var(--radius-md); margin-bottom: var(--spacing-3);">
+                            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-gray-600);">
+                                <strong>Privacy Assurance:</strong> Your information is secure and will only be used to
+                                provide you with an insurance quote. We comply with Kenya's Data Protection Act (2019)
+                                and never share your data with third parties without your consent.
+                            </p>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-outline btn-prev">← Previous</button>
+                            <button type="submit" class="btn btn-accent btn-large">Submit Quote Request</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Contact Options -->
+    <section class="section section-alt">
+        <div class="container text-center">
+            <h2 class="mb-4">Prefer to Contact Us Directly?</h2>
+            <p class="mb-5" style="color: var(--color-gray-600);">We're here to help through multiple channels.</p>
+
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-icon" style="margin: 0 auto;">📞</div>
+                    <h3 class="card-title">Call Us</h3>
+                    <p class="card-text"><a href="tel:+254700000000">+254 700 000 000</a></p>
+                    <p style="font-size: var(--font-size-sm); color: var(--color-gray-500);">Mon-Fri: 8 AM - 6
+                        PM<br>Sat: 9 AM - 1 PM</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="margin: 0 auto;">💬</div>
+                    <h3 class="card-title">WhatsApp</h3>
+                    <p class="card-text">Get instant responses</p>
+                    <a href="#" class="btn btn-accent btn-small mt-2">Chat Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon" style="margin: 0 auto;">📧</div>
+                    <h3 class="card-title">Email Us</h3>
+                    <p class="card-text"><a href="mailto:info@marlocapital.co.ke">info@marlocapital.co.ke</a></p>
+                    <p style="font-size: var(--font-size-sm); color: var(--color-gray-500);">We'll respond within 24
+                        hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Marlco Capital Insurance</h3>
+                    <p>Your trusted insurance partner in Kenya, providing comprehensive coverage and dedicated support
+                        for individuals, SMEs, and corporates.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Insurance Products</a></li>
+                        <li><a href="quote.html">Get a Quote</a></li>
+                        <li><a href="claims.html">Claims Assistance</a></li>
+                        <li><a href="blog.html">Insurance Insights</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Insurance Products</h3>
+                    <ul>
+                        <li><a href="products.html#motor">Motor Insurance</a></li>
+                        <li><a href="products.html#medical">Medical Insurance</a></li>
+                        <li><a href="products.html#life">Life Insurance</a></li>
+                        <li><a href="products.html#property">Property Insurance</a></li>
+                        <li><a href="products.html#travel">Travel Insurance</a></li>
+                        <li><a href="products.html#business">Business Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>📞 <a href="tel:+254700000000">+254 700 000 000</a></li>
+                        <li>📧 <a href="mailto:info@marlocapital.co.ke">info@marlocapital.co.ke</a></li>
+                        <li>📍 Nairobi, Kenya</li>
+                        <li>🕐 Mon-Fri: 8:00 AM - 6:00 PM</li>
+                        <li>🕐 Sat: 9:00 AM - 1:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Marlco Capital Insurance Agency. All rights reserved. | <a href="#">Privacy Policy</a> |
+                    <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="#" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <span class="whatsapp-icon">💬</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+
+</body>
+
+</html>

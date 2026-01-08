@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main # Change to your default branch name
+
+# Alternative: Use GitHub backend for simpler setup
+# backend:
+#   name: github
+#   repo: your-username/marlco-capital-website
+#   branch: main
+
+media_folder: "images/blog" # Where uploaded images will be stored
+public_folder: "/images/blog" # Public path for images
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Insurance Insights" # Used in the UI
+    folder: "blog-posts" # The path to the folder where blog posts are stored
+    create: true # Allow users to create new blog posts
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template
+    fields: # The fields for each blog post
+      - {label: "Title", name: "title", widget: "string", hint: "The blog post title"}
+      - {label: "Category", name: "category", widget: "select", options: ["Motor Insurance", "Medical Insurance", "Life Insurance", "Property Insurance", "Travel Insurance", "Business Insurance", "Pension Plans", "Insurance Tips", "Industry News", "Policy Guides"]}
+      - {label: "Icon Emoji", name: "icon", widget: "string", default: "📝", hint: "Single emoji to display on the blog card (e.g., 🚗, 🏥, 💡)"}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "MMMM D, YYYY"}
+      - {label: "Reading Time", name: "readingTime", widget: "string", default: "5 min read", hint: "e.g., '5 min read'"}
+      - {label: "Excerpt", name: "excerpt", widget: "text", hint: "Brief summary shown on blog listing page (1-2 sentences)"}
+      - {label: "Body", name: "body", widget: "markdown", hint: "Full blog post content (supports Markdown formatting)"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false, hint: "Show this post first on the blog page"}
