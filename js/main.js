@@ -8,7 +8,7 @@
 // ========================================
 const CONFIG = {
     // TODO: Replace with actual WhatsApp business number
-    whatsappNumber: '254700000000', // Placeholder - update with actual number
+    whatsappNumber: '254722350761',
     whatsappMessage: 'Hello Marlco Capital! I would like to inquire about insurance services.',
 };
 
