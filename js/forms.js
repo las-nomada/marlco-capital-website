@@ -312,17 +312,8 @@ class MultiStepForm {
 // INITIALIZE FORMS ON DOM LOAD
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all standard forms
+    // Initialize all forms with validation
     document.querySelectorAll('form').forEach(form => {
-        if (!form.classList.contains('multi-step-form')) {
-            new FormValidator(form);
-        }
+        new FormValidator(form);
     });
-
-    // Initialize multi-step forms
-    const quoteForm = document.getElementById('quote-form');
-    if (quoteForm) {
-        new MultiStepForm('quote-form');
-        new FormValidator(quoteForm);
-    }
 });

@@ -20,45 +20,38 @@
     <link rel="stylesheet" href="css/responsive.css">
 
     <style>
-        .form-step {
-            display: none;
+        .form-section {
+            margin-bottom: var(--spacing-5);
+            padding-bottom: var(--spacing-4);
+            border-bottom: 1px solid var(--color-gray-200);
         }
 
-        .form-step.active {
-            display: block;
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: var(--spacing-3);
         }
 
-        .progress-container {
-            margin-bottom: var(--spacing-4);
-        }
-
-        .progress-bar-bg {
-            width: 100%;
-            height: 8px;
-            background-color: var(--color-gray-200);
-            border-radius: var(--radius-full);
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            width: 33.33%;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-            transition: width var(--transition-base);
-        }
-
-        .step-indicator {
-            text-align: center;
-            margin-top: var(--spacing-2);
-            color: var(--color-gray-600);
-            font-weight: 600;
-        }
-
-        .form-navigation {
+        .form-section-title {
             display: flex;
+            align-items: center;
             gap: var(--spacing-2);
-            justify-content: space-between;
-            margin-top: var(--spacing-4);
+            margin-bottom: var(--spacing-3);
+            font-size: var(--font-size-xl);
+            color: var(--color-primary);
+        }
+
+        .form-section-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-sm);
+            font-weight: bold;
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -107,25 +100,21 @@
         <div class="container">
             <div style="max-width: 700px; margin: 0 auto;">
 
-                <!-- Progress Indicator -->
-                <div class="progress-container">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar"></div>
-                    </div>
-                    <div class="step-indicator">Step 1 of 3</div>
-                </div>
+                <form id="quote-form">
 
-                <form id="quote-form" class="multi-step-form">
-
-                    <!-- Step 1: Insurance Type -->
-                    <div class="form-step active">
-                        <h2 class="mb-4">What type of insurance do you need?</h2>
+                    <!-- Section 1: Insurance Details -->
+                    <div class="form-section">
+                        <h2 class="form-section-title">
+                            <span class="form-section-number">1</span>
+                            What type of insurance do you need?
+                        </h2>
 
                         <div class="form-group">
                             <label class="form-label">Select Insurance Type <span
                                     style="color: var(--color-error);">*</span></label>
                             <select name="insurance_type" class="form-control" required>
                                 <option value="">-- Select Type --</option>
+                                <option value="pension">Pension Plans</option>
                                 <option value="motor">Motor Insurance</option>
                                 <option value="medical">Medical Insurance</option>
                                 <option value="life">Life Insurance</option>
@@ -150,16 +139,14 @@
                             <textarea name="insurance_details" class="form-control"
                                 placeholder="E.g., I have a Toyota Harrier 2020 and need comprehensive motor insurance..."></textarea>
                         </div>
-
-                        <div class="form-navigation">
-                            <div></div>
-                            <button type="button" class="btn btn-primary btn-next">Next Step →</button>
-                        </div>
                     </div>
 
-                    <!-- Step 2: Personal Information -->
-                    <div class="form-step">
-                        <h2 class="mb-4">Your Personal Information</h2>
+                    <!-- Section 2: Personal Information -->
+                    <div class="form-section">
+                        <h2 class="form-section-title">
+                            <span class="form-section-number">2</span>
+                            Your Personal Information
+                        </h2>
 
                         <div class="grid grid-2">
                             <div class="form-group">
@@ -193,34 +180,34 @@
                             <input type="text" name="location" class="form-control"
                                 placeholder="Nairobi, Mombasa, etc.">
                         </div>
-
-                        <div class="form-navigation">
-                            <button type="button" class="btn btn-outline btn-prev">← Previous</button>
-                            <button type="button" class="btn btn-primary btn-next">Next Step →</button>
-                        </div>
                     </div>
 
-                    <!-- Step 3: Preferences & Submit -->
-                    <div class="form-step">
-                        <h2 class="mb-4">How can we help you best?</h2>
+                    <!-- Section 3: Preferences & Submit -->
+                    <div class="form-section">
+                        <h2 class="form-section-title">
+                            <span class="form-section-number">3</span>
+                            How can we reach you?
+                        </h2>
 
-                        <div class="form-group">
-                            <label class="form-label">Preferred Contact Method</label>
-                            <select name="contact_method" class="form-control">
-                                <option value="phone">Phone Call</option>
-                                <option value="email">Email</option>
-                                <option value="whatsapp">WhatsApp</option>
-                            </select>
-                        </div>
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <label class="form-label">Preferred Contact Method</label>
+                                <select name="contact_method" class="form-control">
+                                    <option value="phone">Phone Call</option>
+                                    <option value="email">Email</option>
+                                    <option value="whatsapp">WhatsApp</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <label class="form-label">When should we contact you?</label>
-                            <select name="contact_time" class="form-control">
-                                <option value="anytime">Anytime</option>
-                                <option value="morning">Morning (8 AM - 12 PM)</option>
-                                <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
-                                <option value="evening">Evening (4 PM - 6 PM)</option>
-                            </select>
+                            <div class="form-group">
+                                <label class="form-label">When should we contact you?</label>
+                                <select name="contact_time" class="form-control">
+                                    <option value="anytime">Anytime</option>
+                                    <option value="morning">Morning (8 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                    <option value="evening">Evening (4 PM - 6 PM)</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -228,21 +215,20 @@
                             <textarea name="comments" class="form-control"
                                 placeholder="Any other information we should know?"></textarea>
                         </div>
-
-                        <div
-                            style="background-color: var(--color-gray-50); padding: var(--spacing-3); border-radius: var(--radius-md); margin-bottom: var(--spacing-3);">
-                            <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-gray-600);">
-                                <strong>Privacy Assurance:</strong> Your information is secure and will only be used to
-                                provide you with an insurance quote. We comply with Kenya's Data Protection Act (2019)
-                                and never share your data with third parties without your consent.
-                            </p>
-                        </div>
-
-                        <div class="form-navigation">
-                            <button type="button" class="btn btn-outline btn-prev">← Previous</button>
-                            <button type="submit" class="btn btn-accent btn-large">Submit Quote Request</button>
-                        </div>
                     </div>
+
+                    <!-- Privacy & Submit -->
+                    <div
+                        style="background-color: var(--color-gray-50); padding: var(--spacing-3); border-radius: var(--radius-md); margin-bottom: var(--spacing-3);">
+                        <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-gray-600);">
+                            <strong>Privacy Assurance:</strong> Your information is secure and will only be used to
+                            provide you with an insurance quote. We comply with Kenya's Data Protection Act (2019)
+                            and never share your data with third parties without your consent.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-accent btn-large" style="width: 100%;">Submit Quote
+                        Request</button>
 
                 </form>
 
@@ -307,6 +293,7 @@
                 <div class="footer-section">
                     <h3>Insurance Products</h3>
                     <ul>
+                        <li><a href="products.html#pension">Pension Plans</a></li>
                         <li><a href="products.html#motor">Motor Insurance</a></li>
                         <li><a href="products.html#medical">Medical Insurance</a></li>
                         <li><a href="products.html#life">Life Insurance</a></li>
@@ -324,7 +311,7 @@
                         <li>📍 Karen End Mall, 2nd Floor, Nairobi</li>
                         <li>🕐 Mon-Fri: 8:00 AM - 6:00 PM</li>
                         <li>🕐 Sat: 9:00 AM - 12:00 PM</li>
-                        <li>🚫 Sun & Public Holidays: Closed</li>
+                        <li>🚫 Sun &amp; Public Holidays: Closed</li>
                     </ul>
                 </div>
             </div>
