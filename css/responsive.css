@@ -216,9 +216,32 @@
         right: var(--spacing-2);
     }
 
+    /* Disable hover lift on touch devices to prevent scroll jank */
+    .card:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+
+    /* GPU acceleration for fixed/animated elements */
+    .navbar {
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .whatsapp-float {
+        will-change: auto;
+    }
+
+    /* Reduce transition complexity */
+    .card {
+        transition: none;
+    }
+
     /* Form controls */
     .form-control {
-        font-size: 16px; /* Prevents iOS zoom on focus */
+        font-size: 16px;
+        /* Prevents iOS zoom on focus */
         padding: var(--spacing-2);
     }
 

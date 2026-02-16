@@ -87,25 +87,27 @@ class Navigation {
 
     initScrollBehavior() {
         let lastScroll = 0;
+        let ticking = false;
 
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const currentScroll = window.pageYOffset;
 
-            if (currentScroll <= 0) {
-                this.navbar.style.transform = 'translateY(0)';
-                return;
+                    if (currentScroll <= 0) {
+                        this.navbar.style.transform = 'translateY(0)';
+                    } else if (currentScroll > lastScroll && currentScroll > 100) {
+                        this.navbar.style.transform = 'translateY(-100%)';
+                    } else {
+                        this.navbar.style.transform = 'translateY(0)';
+                    }
+
+                    lastScroll = currentScroll;
+                    ticking = false;
+                });
+                ticking = true;
             }
-
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                // Scrolling down
-                this.navbar.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                this.navbar.style.transform = 'translateY(0)';
-            }
-
-            lastScroll = currentScroll;
-        });
+        }, { passive: true });
     }
 }
 
@@ -129,13 +131,14 @@ class WhatsAppChat {
     }
 
     addPulseAnimation(button) {
-        // Create pulse effect every 3 seconds
+        // Create pulse effect every 5 seconds (less frequent on mobile)
+        const interval = 'ontouchstart' in window ? 6000 : 3000;
         setInterval(() => {
             button.style.animation = 'pulse 0.6s';
             setTimeout(() => {
                 button.style.animation = '';
             }, 600);
-        }, 3000);
+        }, interval);
     }
 }
 
@@ -153,6 +156,10 @@ class ScrollAnimations {
     }
 
     init() {
+        // Skip heavy animations on mobile/touch devices for better scroll performance
+        const isMobile = 'ontouchstart' in window || window.innerWidth < 768;
+        if (isMobile) return;
+
         // Create Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -160,16 +167,18 @@ class ScrollAnimations {
                     entry.target.classList.add('fade-in');
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Stop observing once animated
                 }
             });
         }, this.observerOptions);
 
-        // Observe elements with animation classes
+        // Observe elements with animation classes (limit stagger to avoid long delays)
         const elementsToAnimate = document.querySelectorAll('.card, .grid > *, .hero-content');
         elementsToAnimate.forEach((el, index) => {
+            const delay = Math.min(index * 0.1, 0.5); // Cap delay at 0.5s
             el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = `opacity 0.4s ease ${delay}s, transform 0.4s ease ${delay}s`;
             observer.observe(el);
         });
     }
@@ -213,16 +222,23 @@ class ScrollToTop {
     }
 
     init() {
-        // Show/hide button based on scroll position
+        // Show/hide button based on scroll position (throttled)
+        let scrollTicking = false;
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                this.button.style.opacity = '1';
-                this.button.style.visibility = 'visible';
-            } else {
-                this.button.style.opacity = '0';
-                this.button.style.visibility = 'hidden';
+            if (!scrollTicking) {
+                requestAnimationFrame(() => {
+                    if (window.pageYOffset > 300) {
+                        this.button.style.opacity = '1';
+                        this.button.style.visibility = 'visible';
+                    } else {
+                        this.button.style.opacity = '0';
+                        this.button.style.visibility = 'hidden';
+                    }
+                    scrollTicking = false;
+                });
+                scrollTicking = true;
             }
-        });
+        }, { passive: true });
 
         // Scroll to top on click
         this.button.addEventListener('click', () => {
