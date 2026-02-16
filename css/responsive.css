@@ -4,6 +4,17 @@
  */
 
 /* ========================================
+   PARTNERS GRID - Base (Desktop)
+   ======================================== */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ========================================
    TABLET - 640px and up
    ======================================== */
 @media (min-width: 640px) {
@@ -42,7 +53,16 @@
 }
 
 /* ========================================
-   MOBILE SPECIFIC STYLES
+   TABLET SPECIFIC - 640px to 767px
+   ======================================== */
+@media (min-width: 640px) and (max-width: 767px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ========================================
+   MOBILE SPECIFIC STYLES - below 640px
    ======================================== */
 @media (max-width: 639px) {
     :root {
@@ -51,17 +71,20 @@
         --font-size-3xl: 1.5rem;
     }
 
+    /* Hero adjustments */
     .hero {
-        min-height: 500px;
-        padding: var(--spacing-4) 0;
+        min-height: 400px;
+        padding: var(--spacing-3) 0;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
+        line-height: 1.2;
     }
 
     .hero-subtitle {
-        font-size: var(--font-size-base);
+        font-size: var(--font-size-sm);
+        line-height: 1.5;
     }
 
     .hero-cta {
@@ -70,34 +93,179 @@
 
     .hero-cta .btn {
         width: 100%;
+        text-align: center;
     }
 
+    /* Typography */
     h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
         font-size: 1.75rem;
     }
 
-    h3 {
+    h2 {
         font-size: 1.5rem;
     }
 
-    .section {
-        padding: var(--spacing-6) 0;
+    h3 {
+        font-size: 1.25rem;
     }
 
-    .whatsapp-float {
-        width: 56px;
-        height: 56px;
-        bottom: var(--spacing-3);
-        right: var(--spacing-3);
+    /* Sections */
+    .section {
+        padding: var(--spacing-4) 0;
+    }
+
+    .container {
+        padding: 0 var(--spacing-2);
+    }
+
+    /* Cards */
+    .card {
+        padding: var(--spacing-3);
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        font-size: var(--font-size-xl);
+    }
+
+    .card-title {
+        font-size: var(--font-size-base);
+    }
+
+    /* Buttons - larger touch targets */
+    .btn {
+        padding: var(--spacing-2) var(--spacing-3);
+        font-size: var(--font-size-base);
+        min-height: 44px;
+    }
+
+    .btn-large {
+        padding: var(--spacing-2) var(--spacing-4);
+        font-size: var(--font-size-base);
+    }
+
+    .btn-small {
+        padding: var(--spacing-1) var(--spacing-2);
+        font-size: var(--font-size-sm);
+        min-height: 40px;
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Partners grid - single column on mobile */
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-2);
+    }
+
+    .partners-grid .card {
+        padding: var(--spacing-3);
+        min-height: 80px;
+    }
+
+    .partners-grid .card img {
+        height: 40px;
+        max-width: 90px;
+    }
+
+    .partners-grid .card h3 {
+        font-size: var(--font-size-sm) !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* Footer */
+    .footer {
+        padding: var(--spacing-4) 0 var(--spacing-3);
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: var(--spacing-4);
+        gap: var(--spacing-3);
+    }
+
+    .footer-section h3 {
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-2);
+    }
+
+    .footer-section ul li {
+        margin-bottom: var(--spacing-1);
+    }
+
+    /* Grid fallbacks for inline grids */
+    .grid {
+        gap: var(--spacing-3);
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    /* WhatsApp button */
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        bottom: var(--spacing-2);
+        right: var(--spacing-2);
+    }
+
+    /* Form controls */
+    .form-control {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        padding: var(--spacing-2);
+    }
+
+    /* Contact page inline layouts */
+    [style*="display: flex"][style*="gap"] {
+        flex-wrap: wrap;
+    }
+
+    /* Tables / content overflow */
+    .container {
+        overflow-x: hidden;
+    }
+
+    /* Navbar logo text */
+    .navbar-logo span {
+        font-size: var(--font-size-base);
+    }
+
+    .navbar-logo-icon {
+        width: 34px;
+        height: 34px;
+        font-size: var(--font-size-sm);
+    }
+
+    .navbar-container {
+        padding: var(--spacing-1) var(--spacing-2);
+    }
+}
+
+/* ========================================
+   VERY SMALL SCREENS - below 380px
+   ======================================== */
+@media (max-width: 379px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: var(--font-size-xs);
+    }
+
+    .navbar-logo span {
+        font-size: var(--font-size-sm);
     }
 }
 
