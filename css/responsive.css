@@ -98,7 +98,7 @@
     }
 
     .hero-image-container {
-        order: -1;
+        order: 1;
     }
 
     .hero-cta .btn {
