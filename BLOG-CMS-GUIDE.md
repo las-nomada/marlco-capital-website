@@ -35,7 +35,7 @@ Then visit: `http://localhost:8080/admin`
 
 Once deployed:
 
-1. **Go to**: `https://marlocapital.co.ke/admin`
+1. **Go to**: `https://marlcocapital.co.ke/admin`
 2. **Login** with authorized email
 3. **Click**: "New Insurance Insights"
 4. **Fill in the form**:
@@ -129,7 +129,7 @@ Create a simple guide for your client:
 
 **"How to Add a Blog Post"**
 
-1. Go to **marlocapital.co.ke/admin**
+1. Go to **marlcocapital.co.ke/admin**
 2. Login with your email and password
 3. Click **"New Insurance Insights"**
 4. Fill in the simple form (like filling out a Google Form)

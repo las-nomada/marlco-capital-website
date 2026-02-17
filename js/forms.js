@@ -8,7 +8,7 @@
 // ========================================
 const FORM_CONFIG = {
     // TODO: Replace with actual email or form service endpoint
-    submitEmail: 'info@marlocapital.co.ke', // Placeholder
+    submitEmail: 'info@marlcocapital.co.ke', // Placeholder
     formspreeEndpoint: '', // Add FormSpree or similar service endpoint if needed
 };
 

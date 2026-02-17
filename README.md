@@ -141,5 +141,5 @@ The website is designed with Kenya Data Protection Act (2019) compliance in mind
 ## 🤝 Support
 
 For questions or issues with the website, contact:
-- Email: info@marlocapital.co.ke
+- Email: info@marlcocapital.co.ke
 - Phone: +254 700 000 000

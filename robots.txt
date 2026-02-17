@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marlocapital.co.ke/sitemap.xml
+Sitemap: https://marlcocapital.co.ke/sitemap.xml
