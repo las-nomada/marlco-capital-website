@@ -143,8 +143,8 @@
                         <h3 class="mb-3">📍 Office Location</h3>
                         <p class="mb-2"><strong>Marlco Capital Insurance Agency</strong></p>
                         <p class="mb-3">Karen End Mall, 2nd Floor<br>Nairobi, Kenya</p>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener"
-                            class="btn btn-outline btn-small">Get Directions →</a>
+                        <a href="https://www.google.com/maps/search/Karen+End+Mall+Nairobi+Kenya" target="_blank"
+                            rel="noopener" class="btn btn-outline btn-small">Get Directions →</a>
                     </div>
                 </div>
 
@@ -156,12 +156,13 @@
     <section class="section section-alt">
         <div class="container">
             <h2 class="text-center mb-4">Visit Our Office</h2>
-            <div
-                style="width: 100%; height: 400px; background-color: var(--color-gray-200); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: var(--color-gray-500);">
-                <div style="text-align: center;">
-                    <p style="font-size: var(--font-size-xl); margin-bottom: var(--spacing-2);">📍</p>
-                    <p style="margin: 0;">Map integration to be added<br>(Google Maps / OpenStreetMap)</p>
-                </div>
+            <div class="map-container">
+                <iframe
+                    src="https://maps.google.com/maps?q=Shell+Karen+End,+Nairobi,+Kenya&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="450" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Marlco Capital Insurance Agency - Karen End Mall, Nairobi">
+                </iframe>
             </div>
         </div>
     </section>
@@ -173,24 +174,21 @@
 
             <div style="max-width: 600px; margin: 0 auto;">
                 <div class="card">
-                    <div
-                        style="display: flex; justify-content: space-between; padding: var(--spacing-2); border-bottom: 1px solid var(--color-gray-200);">
-                        <span style="font-weight: 600;">Monday - Friday</span>
-                        <span style="color: var(--color-gray-600);">8:00 AM - 6:00 PM</span>
+                    <div class="hours-row">
+                        <span class="hours-day">Monday - Friday</span>
+                        <span class="hours-time">8:00 AM - 6:00 PM</span>
                     </div>
-                    <div
-                        style="display: flex; justify-content: space-between; padding: var(--spacing-2); border-bottom: 1px solid var(--color-gray-200);">
-                        <span style="font-weight: 600;">Saturday</span>
-                        <span style="color: var(--color-gray-600);">9:00 AM - 12:00 PM</span>
+                    <div class="hours-row">
+                        <span class="hours-day">Saturday</span>
+                        <span class="hours-time">9:00 AM - 12:00 PM</span>
                     </div>
-                    <div style="display: flex; justify-content: space-between; padding: var(--spacing-2);">
-                        <span style="font-weight: 600;">Sunday & Public Holidays</span>
-                        <span style="color: var(--color-error);">Closed</span>
+                    <div class="hours-row hours-row-last">
+                        <span class="hours-day">Sunday & Public Holidays</span>
+                        <span class="hours-closed">Closed</span>
                     </div>
 
-                    <div
-                        style="margin-top: var(--spacing-4); padding: var(--spacing-3); background-color: var(--color-gray-50); border-radius: var(--radius-md);">
-                        <p style="margin: 0; font-size: var(--font-size-sm); color: var(--color-gray-700);">
+                    <div class="hours-emergency">
+                        <p class="hours-emergency-text">
                             <strong>Emergency Claims:</strong> Available 24/7 via phone: <a
                                 href="tel:+254722350761">+254 722 350 761</a>
                         </p>
