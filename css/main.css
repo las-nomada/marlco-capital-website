@@ -828,6 +828,10 @@ select.form-control {
 
 .whatsapp-icon {
     font-size: var(--font-size-3xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
 /* ========================================
