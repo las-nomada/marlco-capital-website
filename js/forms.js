@@ -7,9 +7,8 @@
 // FORM CONFIGURATION
 // ========================================
 const FORM_CONFIG = {
-    // TODO: Replace with actual email or form service endpoint
-    submitEmail: 'info@marlcocapital.co.ke', // Placeholder
-    formspreeEndpoint: '', // Add FormSpree or similar service endpoint if needed
+    submitEmail: 'info@marlcocapital.co.ke',
+    formspreeEndpoint: 'https://formspree.io/f/xgolybev',
 };
 
 // ========================================
@@ -122,6 +121,9 @@ class FormValidator {
         const formData = new FormData(this.form);
         const data = Object.fromEntries(formData.entries());
 
+        // Add form source identifier
+        data._subject = `New ${this.form.id === 'quote-form' ? 'Quote Request' : 'Contact Message'} from Marlco Capital Website`;
+
         // Show loading state
         const submitButton = this.form.querySelector('button[type="submit"]');
         const originalText = submitButton.textContent;
@@ -157,18 +159,20 @@ class FormValidator {
     }
 
     async submitForm(data) {
-        // For now, log to console (in production, this would send to server/CRM)
-        console.log('Form submitted:', data);
+        const response = await fetch(FORM_CONFIG.formspreeEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
 
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        if (!response.ok) {
+            throw new Error(`Form submission failed: ${response.status}`);
+        }
 
-        // TODO: Implement actual form submission
-        // Option 1: Use FormSpree or similar service
-        // Option 2: Send to your backend API
-        // Option 3: Use mailto (not recommended for production)
-
-        return { success: true };
+        return await response.json();
     }
 
     showNotification(message, type = 'info') {

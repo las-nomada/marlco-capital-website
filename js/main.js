@@ -200,7 +200,7 @@ class ScrollToTop {
         button.setAttribute('aria-label', 'Scroll to top');
         button.style.cssText = `
       position: fixed;
-      bottom: 80px;
+      bottom: 84px;
       right: 24px;
       width: 48px;
       height: 48px;
