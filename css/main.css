@@ -246,15 +246,10 @@ a:hover {
 }
 
 .navbar-logo-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-white);
-    font-weight: 800;
+    width: auto;
+    height: 48px;
+    object-fit: contain;
+    display: block;
 }
 
 .navbar-menu {
